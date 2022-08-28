@@ -13,7 +13,11 @@ public class AccountDao {
 	private String name;
 	private String serviceCode;
 
-	public List<Account> findAccounts() {
+	public List<Account> findAccounts(boolean status) {
+		
+		if(status) {
+			throw new RuntimeException("No Data found in the list");
+		}
 
 		List<Account> myAccounts = new ArrayList<>();
 

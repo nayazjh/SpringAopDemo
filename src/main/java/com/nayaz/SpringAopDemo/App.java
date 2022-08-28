@@ -28,13 +28,29 @@ public class App
         
         accountDao.setName("nayaz");
         
-        List<Account> listAccounts = accountDao.findAccounts();
+        List<Account> listAccounts = accountDao.findAccounts(false);
         
         System.out.println("After Returning on Method");
         
         System.out.println("List of Accounts :" +listAccounts);
+        
+        System.out.println("After throwing Exception on Method");
 
         
+        List<Account> listAccounts1 = null;
+        
+        try {
+        	boolean status = false;
+        	
+        	listAccounts1 = accountDao.findAccounts(status);
+        } catch (Exception e) {
+        	
+        	System.out.println("Caught Exception In AfterThrowing :" +e);
+		}
+
+
+    	System.out.println("Exception In AfterThrowing :");
+
         String name = accountDao.getName();
 
         
